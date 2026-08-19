@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مدیریت و مقایسه قیمت فروشگاه</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>🏪 مقایسه قیمت فروشگاه</h1>
+  <p class="sub">مقایسه قیمت کالا با اکالا و دیجی‌کالا — بدون نیاز به اینترنت برای کالاهای ذخیره‌شده</p>
+</header>
+
+<main>
+  <!-- جستجو -->
+  <section class="card" id="searchCard">
+    <form id="searchForm" autocomplete="off">
+      <label for="name">نام کالا</label>
+      <input type="text" id="name" placeholder="مثلاً نوشابه پپسی ۱.۵ لیتری" required>
+      <label for="storePrice">قیمت فروشگاه من (تومان)</label>
+      <input type="number" id="storePrice" inputmode="numeric" placeholder="80000" required min="0">
+      <label for="barcode">بارکد (اختیاری)</label>
+      <input type="text" id="barcode" placeholder="6267771000000">
+      <button type="submit" class="btn primary big" id="searchBtn">🔎 جستجوی قیمت</button>
+    </form>
+    <div id="loading" class="hidden">⏳ در حال بررسی اکالا و دیجی‌کالا…</div>
+  </section>
+
+  <!-- کارت نتیجه -->
+  <section id="resultWrap" class="hidden"></section>
+
+  <!-- کالاهای ذخیره‌شده -->
+  <section class="card" id="savedCard">
+    <h2>📋 کالاهای ذخیره‌شده</h2>
+    <div id="productList">
+      <p class="empty">در حال بارگذاری…</p>
+    </div>
+  </section>
+</main>
+
+<!-- پنجره تاریخچه -->
+<div id="historyModal" class="modal hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="historyTitle">تاریخچه قیمت</h3>
+      <button type="button" class="btn small" id="closeHistoryBtn">✕ بستن</button>
+    </div>
+    <div id="historyBody" class="table-wrap">
+      <p class="empty">در حال بارگذاری…</p>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<div id="appState" data-products="{}" class="hidden"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
